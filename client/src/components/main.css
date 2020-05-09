@@ -2,10 +2,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	color: #444;
 	position: relative !important;
-	transition: .2s ease-in-out;
-	-webkit-transition: .2s ease-in-out;
-  	-moz-transition: .2s ease-in-out;
-	  -o-transition: .2s ease-in-out;
+	transition: .5s ease-in-out;
+	-webkit-transition: .5s ease-in-out;
+  	-moz-transition: .5s ease-in-out;
+	  -o-transition: .5s ease-in-out;
 	word-wrap: none;
 }
 
@@ -445,7 +445,8 @@ hr {
 
 .SigninForm {
 	height: 100vh;
-	margin: 100px 37% 0 37%;
+	margin: 100px 38% 0 38%;
+    display: inline-block;
 }
 
 footer {

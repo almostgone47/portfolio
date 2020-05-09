@@ -5,7 +5,7 @@ class Signup extends React.Component {
 
 handleSignup = (e) => {
    e.preventDefault();
-   const url = 'http://localhost:3001/signup';
+   const url = 'http://localhost:5000/api/signup';
    const data = {
          username: this.username.value,
          password: this.password.value

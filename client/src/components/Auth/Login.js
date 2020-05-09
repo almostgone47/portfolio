@@ -1,6 +1,5 @@
-import React, { Component } from './node_modules/react';
-import { connect } from './node_modules/react-redux';
-import * as actionTypes from '../../store/actions/actionTypes';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { loginUser } from '../../store/actions/index';
 
 class Login extends Component {

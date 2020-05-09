@@ -1,32 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getAllBlogs } from '../../store/actions/index';
 
-class BlogPage extends React.Component {
-    constructor(props) {
-      super(props);
 
-      this.state = {
-        blogs: []
-      };
-    }
-
+class Blogs extends Component {
     componentDidMount() {
-        const url = "http://localhost:3001/api/v1/blog/index";
-        axios.get(url)
-            .then(response => 
-                this.setState({ 
-                    blogs: response.data
-                }))
-            .catch((err) => 
-                console.log('get blogs err:', err)
-            );
+        this.props.onGetAllBlogs();
     }
-
+    
     render() {
-        const { blogs } = this.state;
-
-        const allBlogs = blogs.map((blog, index) => (
+        console.log('this.props', this.props.blogs)
+        const allBlogs = this.props.blogs.map((blog, index) => (
             <div key={index} className="col-md-12">
                 <Link to={`/blog/${blog.id}`} className="btn custom-button">
                     <div className="card mb-5">
@@ -66,7 +51,7 @@ class BlogPage extends React.Component {
                             </Link>
                         </div>
                         <div className="row">
-                            {blogs.length > 0 ? allBlogs : noBlog}
+                            {this.props.blogs.length > 0 ? allBlogs : noBlog}
                         </div>
                     </main>
                 </div>
@@ -75,4 +60,18 @@ class BlogPage extends React.Component {
     }
 }
 
-export default BlogPage;
+const mapStateToProps = state => {
+    console.log('blogs mapstatetoprops: ', state.blogState.blogs)
+    return {
+        blogs: state.blogState.blogs
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onGetAllBlogs: () => dispatch(getAllBlogs())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blogs);

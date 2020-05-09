@@ -9,7 +9,10 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
   
-    this.state = {}
+    this.state = {
+      scroll: 0,
+      top: 0
+    }
   
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -45,13 +48,12 @@ class Navbar extends Component {
 
   componentDidUpdate() {
     this.state.scroll > this.state.top ? document.body.style.paddingTop = `${this.state.height}px` : document.body.style.paddingTop = 0;
-    
   }
 
   render() {
     return (
       <nav className= {this.state.scroll > this.state.top ? 'scrolled fixed-nav navbar navbar-expand navbar-dark fixed-top align-content-right' : 'navbar navbar-expand navbar-dark fixed-top align-content-right'}>
-        <img src={menuIcon} alt="menu icon" id="menu-icon" /> 
+        <img src={menuIcon} alt="menu icon" id="menu-icon" />  
         <ul className="navbar-nav">
             <Link to="/" className="nav-item">About Me</Link>
             <Link to="/resume" className="nav-item">Resume</Link>

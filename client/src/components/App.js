@@ -10,8 +10,8 @@ import BlogPage from './Blog/Blogs';
 import NewBlog from './Blog/NewBlog';
 import Blog from './Blog/Blog';
 import Resume from './Resume/Resume';
-import Login from './auth/Login';
-import Signup from './auth/Signup';
+import Login from './Auth/Login';
+import Signup from './Auth/Signup';
 
 class App extends Component {
     componentDidMount() {

@@ -4,7 +4,7 @@ const initialState = {
     current_user: ""
   }
   
-function navbarReducer(state = initialState, action) {
+function authReducer(state = initialState, action) {
     console.log('navbarReducer Action: ', action, 'State: ', state)
     switch (action.type) {
         case actionTypes.FETCH_USER: 
@@ -20,4 +20,4 @@ function navbarReducer(state = initialState, action) {
     }
 }
 
-  export default navbarReducer;
+  export default authReducer;
