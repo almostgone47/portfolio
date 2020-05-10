@@ -25,6 +25,24 @@ client.connect((err) => {
 })
 
 module.exports = {
+    addBlog: (newBlog, callback) => {
+        client.query('INSERT INTO blogs(title, body) VALUES($1, $2) RETURNING *', [newBlog.title, newBlog.body], (err, data) => {
+            if (err) {
+                callback(err)
+            } else {
+                callback(null, data)
+            }
+        })
+    },
+    editBlog: (newData, callback) => {
+        client.query('UPDATE blogs SET title = ($1), body = ($2) WHERE id = ($3)', [newData.title, newData.body, newData.id], (err, data) => {
+            if (err) {
+                callback(err)
+            } else {
+                callback(null, data)
+            }
+        })
+    },
     getBlogs: (callback) => {
         client.query('SELECT * FROM blogs', (err, data) => {
             if (err) {

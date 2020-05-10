@@ -33,6 +33,9 @@ const Blog = (props) => {
         <Link to="/blogs" className="btn btn-link">
           Back
         </Link>
+        <Link to="/editBlog" className="btn btn-link">
+          Edit
+        </Link>
       </div>
     </div>
   );

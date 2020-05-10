@@ -1,0 +1,92 @@
+show tables
+;
+show databases;
+describe databases;
+show databases
+;
+\l
+use eightbnb
+;
+USE eightbnb;
+\c eightbnb;
+Show tables;
+\dt
+select * from reservations;
+select * from spaces;
+\dt
+\dt
+\dt
+\st
+\dt listings
+\d listings
+\d listings
+\dt listings
+\dt listing
+\d listing
+\c mydb
+\dt
+\d listing
+\copy listing(neighborhood_id, price, sqft, bed_number, bath_number, listing_address, images) FROM './dataListing.csv' delimiter ',' csv header;
+use mydb
+select * from listing where neighborhood_id = 3
+;
+select * from listing where neighborhood_id  = 3;
+\timing
+select * from listing where neighborhood_id  = 3;
+select count(*) from listing;
+select * from listing FULL JOIN neighborhood ON neighborhood.id = listing.neighborhood_id where neighborhood_id = 5;
+UPDATE listing SET price = 600000 WHERE id = 6069256;
+select * from listing FULL JOIN neighborhood ON neighborhood.id = listing.neighborhood_id where neighborhood_id = 5;
+select * from listing FULL JOIN neighborhood ON neighborhood.id = listing.neighborhood_id where neighborhood_id = 99999;
+select * from listing FULL JOIN neighborhood ON neighborhood.id = listing.neighborhood_id where neighborhood_id = 999999;
+select * from listing FULL JOIN neighborhood ON neighborhood.id = listing.neighborhood_id where neighborhood_id = 2;
+select * from listing FULL JOIN neighborhood ON neighborhood.id = listing.neighborhood_id where neighborhood_id = 2222;
+insert into listing(neighborhood_id,listing_id,bath_number,bed_number,images,listing_address,price,sqft,transit_score,walk_score) VALUES(10000000,3,4,3,'https://7-xillow.s3-us-west-1.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350,16,11);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft,transit_score,walk_score) VALUES(3,4,3,'https://7-xillow.s3-us-west-1.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350,16,11);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(3,4,3,'https://7-xillow.s3-us-west-1.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(35,4,3,'https://7-xillow.s3-us-west-1.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(3577,4,3,'https://7-xillow.s3-us-west.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(357799,4,3,'https://7-xillow.s3-us-west.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(5577999,4,3,'https://7-xillow.s3-us-west.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(3577999,4,3,'https://7-xillow.s3-us-west.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(1577999,4,3,'https://7-xillow.s3-us-west.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+insert into listing(neighborhood_id,bath_number,bed_number,images,listing_address,price,sqft) VALUES(577999,4,3,'https://7-xillow.s3-us-west.amazonaws.com/img5.jpeg','5154 Glover Turnpike Apt. 683',1573868,5350);
+update listing(price) SET(500000) where id = 2;
+delete from listing where id = 10000004;
+delete from listing where id = 10000003;
+delete from listing where id = 10000002;
+delete from listing where id = 10000001;
+delete from listing where id = 10000000;
+UPDATE listing SET price = 500000 WHERE id = 9999999;
+UPDATE listing SET price = 500000 WHERE id = 99999;
+UPDATE listing SET price = 500000 WHERE id = 9999;
+UPDATE listing SET price = 500000 WHERE id = 999;
+UPDATE listing SET price = 500000 WHERE id = 9;
+\copy listings(id,neighborhood_id,price,sqft,bed_number,bath_number,listing_address,images) FROM './dataListing.csv' delimiter ',' csv header;
+insert into neighborhoods(id,transit_score,walk_score) values(1250000,69,59);
+\copy listings(id,neighborhood_id,price,sqft,bed_number,bath_number,listing_address,images) FROM './dataListing.csv' delimiter ',' csv header;
+insert into neighborhoods(id,transit_score,walk_score) values(1250001,79,57);
+\copy listings(id,neighborhood_id,price,sqft,bed_number,bath_number,listing_address,images) FROM './dataListing.csv' delimiter ',' csv header;
+create index nhid listings(neighborhood_id);
+create index nhid on listings(neighborhood_id);
+\q
+\d databases
+\d tables
+\st
+\?
+uit
+\dt
+quit
+\q
+show databases;
+show database;
+\l
+use portfolio_api_development
+;
+\u portfolio_api_development
+;
+\c portfolio_api_development
+;
+\d tables
+\dt
+\s blogs

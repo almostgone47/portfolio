@@ -45,7 +45,7 @@ class Blogs extends Component {
                 <div className="py-5">
                     <main className="container">
                         <div className="mb-3">
-                            <Link exact to="/new_blog" className="btn">
+                            <Link exact to="/newBlog" className="btn">
                                 Create New Blog
                             </Link>
                         </div>

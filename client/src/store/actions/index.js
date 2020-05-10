@@ -7,6 +7,7 @@ export {
 
 export {
     createBlog,
+    updateBlog,
     getBlog,
     getAllBlogs,
 } from './blog';

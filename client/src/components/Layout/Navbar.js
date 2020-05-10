@@ -46,10 +46,6 @@ class Navbar extends Component {
     this.props.onFetchUser();
   }
 
-  componentDidUpdate() {
-    this.state.scroll > this.state.top ? document.body.style.paddingTop = `${this.state.height}px` : document.body.style.paddingTop = 0;
-  }
-
   render() {
     return (
       <nav className= {this.state.scroll > this.state.top ? 'scrolled fixed-nav navbar navbar-expand navbar-dark fixed-top align-content-right' : 'navbar navbar-expand navbar-dark fixed-top align-content-right'}>

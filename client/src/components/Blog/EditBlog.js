@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createBlog } from '../../store/actions/index';
+import { updateBlog } from '../../store/actions/index';
 import { Link } from "react-router-dom";
 
-class NewBlog extends Component {
+class EditBlog extends Component {
   
   state = {
+    id: '',
     title: '',
     body: '',
   };
@@ -16,13 +17,21 @@ class NewBlog extends Component {
     });
   }
 
+  componentDidMount() {
+    this.setState({
+        id: this.props.blog.id,
+        title: this.props.blog.title,
+        body: this.props.blog.body
+    })
+  }
+
   render() {
     return (
       <div className="container mt-5">
         <div className="row">
           <div className="col-sm-12 col-lg-6 offset-lg-3">
             <h1 className="font-weight-normal mb-5">
-              Add a new blog to the collection.
+              Blog Edit
             </h1>
             <form>
               <div className="form-group">
@@ -50,7 +59,7 @@ class NewBlog extends Component {
                   />
               </div>
 
-              <button onClick={() => this.props.onSubmitBlog({title: this.state.title, body: this.state.body})} className="btn custom-button mt-3">
+              <button onClick={() => this.props.onSubmitBlog({id: this.state.id, title: this.state.title, body: this.state.body})} className="btn custom-button mt-3">
                 Save Blog
               </button>
               <Link to="/blog" className="btn btn-link mt-3">
@@ -66,16 +75,16 @@ class NewBlog extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-
-  }
+    return {
+        blog: state.blogState.blog
+    }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onSubmitBlog: (blog) => dispatch(createBlog(blog))
-  }
+    return {
+        onSubmitBlog: (blog) => dispatch(updateBlog(blog))
+    }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewBlog);
+export default connect(mapStateToProps, mapDispatchToProps)(EditBlog);

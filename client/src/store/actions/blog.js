@@ -49,7 +49,32 @@ export const createBlog = (blog) => {
         axios.post(url, data, config)
             .then(res => {
                 // NOT SURE IF THIS NEEDS TO USE DISPATCH OR JUST CALL GETALLBLOGS()
-                dispatch(getAllBlogs(res))
+                console.log('this is the dispatch that I do no think will work because it should call setting for reducer: ', res)
+                dispatch(getAllBlogs(res.data))
+            })
+            .catch(err => {
+                console.log('error posting new blog: ', err)
+            })
+    }
+}
+
+export const updateBlog = (blog) => {
+    const url = `/api/blog`;
+    const data = {
+        id: blog.id,
+        title: blog.title,
+        body: blog.body
+    }
+    const config = {
+        withCredential: true
+    }
+    console.log('updateBlog fx: data = ', data)
+    return (dispatch) => {
+        axios.put(url, data, config)
+            .then(res => {
+                // NOT SURE IF THIS NEEDS TO USE DISPATCH OR JUST CALL GETALLBLOGS()
+                console.log('blog.js axios.put req: ', res)
+                dispatch(getBlog(blog.id))
             })
             .catch(err => {
                 console.log('error posting new blog: ', err)
