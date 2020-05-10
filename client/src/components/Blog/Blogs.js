@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import { getAllBlogs } from '../../store/actions/index';
+import { getAllBlogs, getBlog } from '../../store/actions/index';
 
 
 class Blogs extends Component {
     componentDidMount() {
         this.props.onGetAllBlogs();
     }
-    
+
     render() {
-        console.log('this.props', this.props.blogs)
         const allBlogs = this.props.blogs.map((blog, index) => (
             <div key={index} className="col-md-12">
-                <Link to={`/blog/${blog.id}`} className="btn custom-button">
+                <Link to={'/blog'} onClick={() => this.props.onGetBlog(blog.id)} className="btn custom-button">
                     <div className="card mb-5">
                         <div className="card-body">
                             <h5 className="card-title">{blog.title}</h5>
@@ -61,7 +60,6 @@ class Blogs extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('blogs mapstatetoprops: ', state.blogState.blogs)
     return {
         blogs: state.blogState.blogs
     }
@@ -69,7 +67,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetAllBlogs: () => dispatch(getAllBlogs())
+        onGetAllBlogs: () => dispatch(getAllBlogs()),
+        onGetBlog: (id) => dispatch(getBlog(id))
     }
 }
 

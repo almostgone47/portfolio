@@ -57,22 +57,35 @@ export const createBlog = (blog) => {
     }
 }
 
-export const getBlog = (blog) => {
-    const url = '/api/blog/:id';
-    const data = {
-        id: blog.id
-    }
-    const config = {
-        withCredential: true
-    }
+export const getBlog = (id) => {
+    const url = `/api/blog/${id}`;
     
     return (dispatch) => {
-        axios.get(url, data, config)
+        axios.get(url)
             .then(res => {
-                dispatch(setBlog(res))
+                dispatch(setBlog(res.data))
             })
             .catch(err => {
                 console.log('error fetching blog: ', err)
             })
     }
 }
+
+  // componentDidMount() {
+  //   const { match: {params: { id }} } = this.props;
+  //   const url = `/api/v1/show/${id}`;
+
+  //   fetch(url)
+  //     .then(response => {
+  //       if (response.ok) {
+  //         return response.json();
+  //       }
+  //     })
+  //     .then(response => 
+  //       this.setState({ 
+  //         blog: response 
+  //       }))
+  //     .catch((err) => 
+  //       console.log("blog fetch: ", err)
+  //     );
+  // }

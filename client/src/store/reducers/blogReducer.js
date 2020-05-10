@@ -13,6 +13,7 @@ function blogReducer(state = initialState, action) {
                 blogs: action.payload
             }
         case actionTypes.GET_BLOG:
+            console.log('BLOG REDUCER: STATE ', action)
             return {
                 ...state,
                 blog: action.payload

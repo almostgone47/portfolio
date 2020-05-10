@@ -5,7 +5,6 @@ const initialState = {
   }
   
 function authReducer(state = initialState, action) {
-    console.log('navbarReducer Action: ', action, 'State: ', state)
     switch (action.type) {
         case actionTypes.FETCH_USER: 
             return {

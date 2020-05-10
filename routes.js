@@ -60,4 +60,16 @@ module.exports = (app, db) => {
             }
         })
     })
+
+    app.get('/api/blog/:id', (req, res) => {
+        console.log('THIS IS FROM THE SERVER, GET-BLOG: ', req.params)
+        db.getBlog(req.params.id, (err, results) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log('THIS IS THE RETRIVED DATA FROM THE DB BEING SENT TO THE CLIENT: ', results)
+                res.send(results)
+            }
+        })
+    })
 }

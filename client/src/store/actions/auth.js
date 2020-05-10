@@ -12,7 +12,6 @@ export const fetchUser = () => {
     return function(dispatch) {
         axios.get('http://localhost:5000/api/current_user')
             .then(res => {
-                console.log('reducer FetchUser: ', res.data)
                 dispatch(getUserState(res))
             })
             .catch((err) => {

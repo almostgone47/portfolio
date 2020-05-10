@@ -323,6 +323,7 @@ input:focus, textarea:focus {
 
 .Blog {
 	min-height: 90vh;
+	margin-top: 100px;
 }
 
 .Resume {

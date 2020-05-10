@@ -6,7 +6,7 @@ import * as actions from '../store/actions/auth';
 import Navbar from './Layout/Navbar';
 import Footer from './Layout/Footer';
 import AboutPage from './AboutPage/AboutPage';
-import BlogPage from './Blog/Blogs';
+import Blogs from './Blog/Blogs';
 import NewBlog from './Blog/NewBlog';
 import Blog from './Blog/Blog';
 import Resume from './Resume/Resume';
@@ -25,8 +25,8 @@ class App extends Component {
                     <Navbar />
                     <Route path="/" exact component={AboutPage} />
                     <Route path="/new_blog" exact component={NewBlog} />
-                    <Route path="/blog/:id" exact component={Blog} />
-                    <Route path="/blog" exact component={BlogPage} />
+                    <Route path="/blog" exact component={Blog} />
+                    <Route path="/blogs" exact component={Blogs} />
                     <Route path="/resume" exact component={Resume} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/signup" exact component={Signup} />

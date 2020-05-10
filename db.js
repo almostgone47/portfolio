@@ -27,12 +27,21 @@ client.connect((err) => {
 module.exports = {
     getBlogs: (callback) => {
         client.query('SELECT * FROM blogs', (err, data) => {
-            console.log('burp! WHAT:!?!:!?', err, data)
             if (err) {
                 callback(err)
             } else {
-                console.log('dada', data)
                 callback(null, data)
+            }
+        })
+    },
+    getBlog: (id, callback) => {
+        console.log('DB IS LOOKING FOR BLOG YOU ASKED FOR', id)
+        client.query('SELECT * FROM blogs WHERE id = $1', [id], (err, data) => {
+            if (err) {
+                callback(err)
+            } else {
+                console.log('GETTING BLOG FROM DB: ', data)
+                callback(null, data.rows[0])
             }
         })
     },
